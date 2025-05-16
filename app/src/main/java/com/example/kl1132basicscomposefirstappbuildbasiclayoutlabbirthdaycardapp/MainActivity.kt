@@ -19,6 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 
 import com.example.kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardapp.ui.theme.Kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardappTheme
 //
@@ -32,7 +35,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(message = "С днюхой", from = "Слава")
+                    GreetingImage(
+                        message = "Happy Birthday Sam!",
+                        from = "From Emma"
+                    )
                 }
             }
         }//
@@ -42,7 +48,9 @@ class MainActivity : ComponentActivity() {
     fun GreetingText(
         message: String,
         from: String,
-        modifier: Modifier = Modifier.padding(8.dp)) {
+        modifier: Modifier = Modifier.padding(8.dp)
+    )
+        {
         Column(
             verticalArrangement = Arrangement.Center,
             modifier = modifier.padding(8.dp)
@@ -61,13 +69,44 @@ class MainActivity : ComponentActivity() {
                     .align(alignment = Alignment.End)
             )
         }
+
+    }
+
+    @Composable
+    fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier)
+    {
+        val image = painterResource(R.drawable.androidparty)
+        Box(Modifier) {
+            Image(
+                painter = image,
+                contentDescription = null
+            )
+            GreetingText(
+                message = message,
+                from = from,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp)
+            )
+        }
+
     }
 
     @Preview(showBackground = true)
     @Composable
     fun BirthdayCardPreview() {
         Kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardappTheme {
-            GreetingText(message = "Happy Birthday Natasha!", from = "Slava")
+            GreetingText(
+                message = "Happy Birthday Natasha!", from = "Slava"
+            )
+            GreetingImage(
+                message = "Happy Birthday Sam!",
+                from = "From Emma"
+            )
         }
     }
+
+
+
+
 }
