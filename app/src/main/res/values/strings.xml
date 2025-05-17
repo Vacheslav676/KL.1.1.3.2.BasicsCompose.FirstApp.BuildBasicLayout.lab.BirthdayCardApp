@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardapp</string>
+    <string name="happy_birthday_natasha">Happy Birthday Natasha!</string>
+    <string name="from_slava">From Slava</string>
 </resources>

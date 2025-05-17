@@ -21,7 +21,11 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 
 import com.example.kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardapp.ui.theme.Kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardappTheme
 //
@@ -41,9 +45,9 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
-        }// куда уходят комитты?
+        }
     }
-//
+
     @Composable
     fun GreetingText(
         message: String,
@@ -53,20 +57,29 @@ class MainActivity : ComponentActivity() {
         {
         Column(
             verticalArrangement = Arrangement.Center,
-            modifier = modifier.padding(8.dp)
+            modifier = modifier
+                .fillMaxSize()
+                .padding(
+                    start = 16.dp,
+                    top = 16.dp,
+                    end = 16.dp,
+                    bottom = 16.dp
+                )
         ) {
             Text(
                 text = message,
                 fontSize = 70.sp,
                 lineHeight = 116.sp,
                 textAlign = TextAlign.Center
+
             )
             Text(
                 text = from,
                 fontSize = 36.sp,
                 modifier = Modifier
                     .padding(16.dp)
-                    .align(alignment = Alignment.End)
+                    .align(alignment = Alignment.CenterHorizontally)
+                    .background(color = Color.Green)
             )
         }
 
@@ -79,7 +92,10 @@ class MainActivity : ComponentActivity() {
         Box(Modifier) {
             Image(
                 painter = image,
-                contentDescription = null
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                alpha = 0.5F
+
             )
             GreetingText(
                 message = message,
@@ -87,6 +103,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(8.dp)
+
             )
         }
 
@@ -96,12 +113,10 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun BirthdayCardPreview() {
         Kl1132basicscomposefirstappbuildbasiclayoutlabbirthdaycardappTheme {
-            GreetingText(
-                message = "Happy Birthday Natasha!", from = "Slava"
-            )
+
             GreetingImage(
-                message = "Happy Birthday Sam!",
-                from = "From Emma"
+                message = stringResource(R.string.happy_birthday_natasha),
+                from = stringResource(R.string.from_slava)
             )
         }
     }
