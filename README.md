@@ -4,4 +4,4 @@
 >
 <img src="https://developer.android.com/static/codelabs/basic-android-kotlin-compose-add-images/img/b681900fe13e5598_1440.png" alt="Логотип проекта" width="150" height="300">
 ## 📌 Описание
-Этот обучающий проект 
+Также добавлены Русские и Английские Строки
