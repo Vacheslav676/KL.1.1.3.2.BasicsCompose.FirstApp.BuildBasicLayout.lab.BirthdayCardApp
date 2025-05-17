@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
-        }//
+        }// куда уходят комитты?
     }
 //
     @Composable
